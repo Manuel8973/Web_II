@@ -1,7 +1,13 @@
 function sumarPropiedad(arr, propiedad) {
-    return arr.reduce((suma, obj) => suma + (obj[propiedad] || 0), 0);
+    let suma = 0;
+    for (let i = 0; i < arr.length; i++) {
+        let valor = arr[i][propiedad];
+        if (valor !== undefined) {
+            suma += valor;
+        }
+    }
+    return suma;
 }
-
 
 let objetos = [
     { valor: 10 }, 
@@ -9,5 +15,5 @@ let objetos = [
     { valor: 30 }
 ];
 
-
+console.log("La suma es:")
 console.log(sumarPropiedad(objetos, "valor")); 
