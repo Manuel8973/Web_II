@@ -1,14 +1,25 @@
-function esPrimo(num) {
-    if (num < 2) return false;
-    for (let i = 2; i <= Math.sqrt(num); i++) {
-        if (num % i === 0) return false;
+function decimalABinario(decimal) {
+    if (decimal === 0) {
+        return "0";
     }
-    return true;
+    
+    let binario = "";
+    let numero = decimal;
+    
+    while (numero > 0) {
+        let resto = numero % 2;
+        
+        binario = resto + binario;
+        
+        numero = Math.floor(numero / 2);
+    }
+    
+    return binario;
 }
 
-function numerosPrimos(arr) {
-    return arr.filter(esPrimo);
-}
 
+const numero1 = 10;
+console.log(`${numero1} en binario es: ${decimalABinario(numero1)}`);
 
-console.log(numerosPrimos([1, 2, 3, 4, 5, 6, 7, 8, 9, 10])); 
+const numero2 = 25;
+console.log(`${numero2} en binario es: ${decimalABinario(numero2)}`);
